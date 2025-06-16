@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>default</title>
+    <script defer>
+        const linguaPagina = document.documentElement.lang; // Prende la lingua della pagina
+        const ultimaLinguaUsata = localStorage.getItem('ultima_lingua_usata');
+
+        if (ultimaLinguaUsata && ultimaLinguaUsata !== linguaPagina) {
+            window.location.replace("/" + ultimaLinguaUsata + "/");
+
+        } else {
+
+            window.location.replace("/" + linguaPagina + "/");
+        }
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="{{lingua}}">
+
+{% include "inizio.inc.html" %}
+
+
+<body>
+    {% include "header.inc.html" %}
+    <main>
+        <br>
+        <p> = Main ===================================================================</p>
+        <h2>
+            {% set frase = {
+                'it': 'Pagine principale del sito',
+                'en': 'principla page',
+                'fr': 'page principale',
+                'de': 'Hauptseite',
+                'es': 'página principal'
+            } %}        
+            {{ frase[lingua] if lingua in frase else frase['it']~ '<!-- errore: manca traduzione -->' }} 
+        </h2>
+        <p> 
+            {% set frase = {
+                'it': 'contenuto in italiano',
+                'en': 'content in English',
+                'fr': 'contenu en français',
+                'de': 'Inhalt auf Deutsch'
+            } %}        
+            {{ frase[lingua] if lingua in frase else frase['it']~ '<!-- errore: manca traduzione -->' }} 
+            </p>
+        <p> = Main ===================================================================</p>
+        <br>
+    </main>
+
+    {% include "footer.inc.html" %}
+        
+</body>
+
+</html>

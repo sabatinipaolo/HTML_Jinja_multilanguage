@@ -1,0 +1,23 @@
+<div class="ms-3">
+    <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="langDropdown" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            {{ bandiera[lingua] if lingua in bandiera else "🚫" ~ '<!-- errore: manca traduzione -->' }}
+            {{ nomeLingua[lingua][lingua]  if lingua in nomeLingua and lingua in nomeLingua[lingua] else "??? " ~ '<!-- errore: manca traduzione -->' }}
+        </button>
+        <ul id="lang_items" class="dropdown-menu" aria-labelledby="langDropdown">
+            
+        {% for l in lingue %}
+            {% if l != lingua %} 
+                <li>
+                    <a class="dropdown-item" href="/{{l}}/{{pagePath}}" data-ultima_lingua_usata="{{l}}">
+                        {{ bandiera[l] if l in bandiera else "🚫" ~ '<!-- errore: manca traduzione -->' }}
+                        {{nomeLingua[l][lingua]  if l in nomeLingua and lingua in nomeLingua[l] else "??? " ~ '<!-- errore: manca traduzione -->' }}
+                    </a>
+                </li>
+            {% endif %}
+        {% endfor %}
+
+        </ul>
+    </div>
+</div>
