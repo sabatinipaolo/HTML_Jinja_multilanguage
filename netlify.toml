@@ -1,3 +1,3 @@
 [build]
   command = "python genera.py "
-  publish = "public"
+  publish = "_site"
