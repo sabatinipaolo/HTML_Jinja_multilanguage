@@ -9,25 +9,17 @@ ESTENSIONI_PROCESSABILI = {'.html','.jinja', '.jinja2'}
 
 
 #todo unificare lingue e bandiere in un unico array ( anzi meglio studiare dizionario esterno ...)
-LINGUE = ["it", "en", "fr", "de", "es","pt", "ru", "zh", "jp","ko"]  # Elenco delle lingue supportate
-BANDIERE = {
-    "it": "🇮🇹",
-    "en": "🇬🇧",
-    "fr": "🇫🇷",
-    "de": "🇩🇪",
-    "es": "🇪🇸",
-    "pt": "🇵🇹",
-    "ru": "🇷🇺",
-    "zh": "🇨🇭",
-    "jp": "🇯🇵"
-    }
+LINGUE          = ["it", "en", "fr", "de", "es", "pt" , "ru" , "zh", "jp","ko"]  # Elenco delle lingue supportate
+BANDIERE_LINGUE = ["🇮🇹", "🇬🇧", "🇫🇷", "🇩🇪", "🇪🇸", "🇵🇹" , "🇷🇺", "🇨🇭", "🇯🇵"]
+
+BANDIERA = dict(zip(LINGUE, BANDIERE_LINGUE))
 
 NOME_LINGUA= {
     "it" : { "it" : "Italiano", "en" : "Italian", "fr" : "Italien",  "de" : "Italienisch", "es":"Italiano"},
-    "en" : { "it" : "Inglese",  "en" : "English", "fr" : "Anglais",  "de" : "Englisch", "es":"Inglés"},
+    "en" : { "it" : "Inglese",  "en" : "English", "fr" : "Anglais",  "de" : "Englisch",    "es":"Inglés"},
     "fr" : { "it" : "Francese", "en" : "French",  "fr" : "Français", "de" : "Französisch", "es" : "Francés"},
-    "de" : { "it" : "Tedesco",  "en" : "German",  "fr" : "Allemand", "de" : "Deutsch", "es" : "Alemán" } ,
-    "es" : { "it" : "Spagnolo", "en" : "Spanish", "fr" : "Espagnol", "de" : "Spanisch", "es"  :  "Español"}
+    "de" : { "it" : "Tedesco",  "en" : "German",  "fr" : "Allemand", "de" : "Deutsch",     "es" : "Alemán" } ,
+    "es" : { "it" : "Spagnolo", "en" : "Spanish", "fr" : "Espagnol", "de" : "Spanisch",    "es"  :  "Español"}
 }
 
 INCLUDE_DIR = "include"  # Define the include directory
@@ -95,7 +87,7 @@ def main():
                     env = Environment(loader=FileSystemLoader([INCLUDE_DIR, template_dir])) # Modified line
                     template = env.get_template(input_path.name)  
                     pagePath=str(input_path.relative_to(INPUT_DIR / "xx"))             
-                    output = template.render(lingua=lingua,lingue=LINGUE,bandiera=BANDIERE, linguaDefault=LINGUA_DEFAULT,nomeLingua=NOME_LINGUA,pagePath=pagePath)
+                    output = template.render(lingua=lingua,lingue=LINGUE,bandiera=BANDIERA, linguaDefault=LINGUA_DEFAULT,nomeLingua=NOME_LINGUA,pagePath=pagePath)
                     dst = OUTPUT_DIR / lingua / input_path.relative_to(INPUT_DIR / "xx")
                     dst.parent.mkdir(parents=True, exist_ok=True)
                     with open(dst, 'w', encoding='utf-8') as f:
