@@ -15,11 +15,12 @@ BANDIERE_LINGUE = ["🇮🇹", "🇬🇧", "🇫🇷", "🇩🇪", "🇪🇸", "
 BANDIERA = dict(zip(LINGUE, BANDIERE_LINGUE))
 
 NOME_LINGUA= {
-    "it" : { "it" : "Italiano", "en" : "Italian", "fr" : "Italien",  "de" : "Italienisch", "es":"Italiano"},
-    "en" : { "it" : "Inglese",  "en" : "English", "fr" : "Anglais",  "de" : "Englisch",    "es":"Inglés"},
-    "fr" : { "it" : "Francese", "en" : "French",  "fr" : "Français", "de" : "Französisch", "es" : "Francés"},
-    "de" : { "it" : "Tedesco",  "en" : "German",  "fr" : "Allemand", "de" : "Deutsch",     "es" : "Alemán" } ,
-    "es" : { "it" : "Spagnolo", "en" : "Spanish", "fr" : "Espagnol", "de" : "Spanisch",    "es"  :  "Español"}
+    "it" : "Italiano",
+    "en" : "English", 
+    "fr" : "Français",
+    "de" : "Deutsch",
+    "es" : "Español",
+    "jp" : "日本語"
 }
 
 INCLUDE_DIR = "include"  # Define the include directory
